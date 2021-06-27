@@ -1,0 +1,48 @@
+# .graphql extension makes it clear that it contains graphQL code
+
+# Type Query is to READ DATA without modifying 
+# NOTE - All Queries must return result/response object 
+# right side of the ':' is the response object
+type Query {
+  # all our Query Types
+
+  # on 'messages' query, returning array of CUSTOM type 'Message' Schema
+  messages: [Message]
+}
+
+# MUTATION TYPE - Mutation is to change data directly.
+type Mutation {
+   # Instead of passing multiple arguments here, we can pass a 'Single Argument' with Input Types
+  addMessage(input: MessageInput!): Message
+}
+
+# GraphQL Subscriptions - allow Client to receive update from the Server.
+# They are bit like queries to get some data from the Server.
+# Query is one off operation where you send Request & get Response back.
+# Subscriptions - we can receive multiple values over time as soon as they become available.
+# so that we can get real time update if we like.
+
+
+# NOTE - Subscriptions is another TYPE just like query & mutation
+type Subscription {
+  # here we can add fields as usual
+  # By convention, we usually choose a 'name' that describes an 'Event TYPES'
+  messageAdded: Message
+  # returning Message Object from below
+}
+
+# SCHEMA TYPE - data type
+type Message {
+  id: ID!
+  from: String 
+  text: String
+}
+
+# NOTE - Things like accepting 'Single Input Argument' for each Mutation are some of the 'Best Practices'
+# Input Types are Argument Types to pass into Mutation to avoid passing lots of arguments 
+# This will make it lot easier on Client Side to call our APIs
+# It's common to name Input Type by adding 'input' at the end  
+input MessageInput {
+  # Arguments are pass down as Fields here
+  text: String
+}
