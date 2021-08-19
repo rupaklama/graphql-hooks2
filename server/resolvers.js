@@ -32,7 +32,11 @@ const Mutation = {
     requireAuth(userId);
     const messageId = db.messages.create({ from: userId, text: input.text });
 
+    // NOTE - we need to publish 'Message' first in order to work subscriptions
+    // Doing Publishing here inside of the mutation
+    
     // first extract the message returned by the db
+    // return db.messages.get(messageId);
     const message = db.messages.get(messageId);
 
     // now we also want to call - pubSub.publish() with Event Type
