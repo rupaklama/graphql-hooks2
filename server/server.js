@@ -1,7 +1,7 @@
 // loading schema.graphql file with built in Node JS API (fs - file system)
 const fs = require('fs');
 
-// To enable Websocket, we first need to first import HTTP module - node js built in module
+// To enable Websocket, we need to first import HTTP module - node js built in module
 const http = require('http');
 
 // to integrate GraphQL with the Express Backend
