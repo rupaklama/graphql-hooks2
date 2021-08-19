@@ -47,6 +47,7 @@ const Mutation = {
 
 // Subscription Type - Subscription Resolver with PubSub
 const Subscription = {
+  // unlike query & mutatation 'messageAdded' property will not be a function instead
   // this property will be a Object that provides a 'subscribe' method
   messageAdded: {
     // this method will return a pubSub asyncIterator & we need to pass an arg with
