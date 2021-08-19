@@ -64,7 +64,7 @@ const client = new ApolloClient({
 
   // note - split func works as a IF statement
   // The args is saying if it is a subscription, we want to use the wsLink
-  // otherwise we want to use httpLink
+  // otherwise we want to use httpLink for queries & mutations
   link: split(isSubscription, wsLink, httpLink),
   defaultOptions: { query: { fetchPolicy: 'no-cache' } },
 });
