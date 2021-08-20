@@ -13,7 +13,8 @@ import client from './graphql/client';
 import App from './App';
 
 ReactDOM.render(
-  // ApolloProvider is to access GraphQL data
+  // ApolloProvider is to access GraphQL data with Apollo Client React Hooks
+  // ApolloProvider uses context api
   <ApolloProvider client={client}>
     <App />
   </ApolloProvider>,
